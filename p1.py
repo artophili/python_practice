@@ -263,7 +263,6 @@
 ##        
 ##        return valid_sudoku
     
-    
 
                 
 ##nums = [1,2,3,3,3]                    
@@ -280,53 +279,103 @@
 ##    else:
 ##        print(False)
 
-strs = ["act","pots","tops","cat","stop","hat"]
-#strs = ["x"]
-def valid_anagram(s, t):
-    if len(s) != len(t):
-        return False
+##strs = ["act","pots","tops","cat","stop","hat"]
+###strs = ["x"]
+##def valid_anagram(s, t):
+##    if len(s) != len(t):
+##        return False
+##
+##    s_d = {}
+##    t_d = {}
+##    for i in range(len(s)):
+##        if s[i] not in s_d:
+##            s_d[s[i]] = 1
+##        else:
+##            s_d[s[i]] = s_d[s[i]] + 1
+##
+##    for j in range(len(t)):
+##        if t[j] not in t_d:
+##            t_d[t[j]] = 1
+##        else:
+##            t_d[t[j]] = t_d[t[j]] + 1
+##
+##    if s_d == t_d:
+##        return True
+##    else:
+##        return False
+##
+##seen = [False] * len(strs)
+##op = []
+##for i in range(len(strs)):
+##    if seen[i]:
+##        #print(seen[i])
+##        continue
+##
+##    a = [strs[i]]
+##    #print(a)
+##    seen[i] = True
+##
+##    for j in range(i+1,len(strs)):
+##         if not seen[j] and valid_anagram(strs[i],strs[j]):
+##             #print(strs[j])
+##             a.append(strs[j])
+##             seen[j] = True
+##    #print(a)
+##
+##    op.append(a)
+##
+##return op
+##
+##
+##
+##
+##l = [10,8,7,5,2]
+##
+###Checking if the prices drop every day
+##desc_flag = True
+##for i in range(len(l)):
+##    for j in range(i,len(l)):
+##        if l[i] < l[j]:
+##            desc_flag = False
+##            break
+##
+##p_dict = {}
+##max_profit = 0
+##for i in range(len(l)):
+##    for j in range(i,len(l)):
+##        p_dict[(l[i],l[j])] = l[j] - l[i]
+##
+##if desc_flag == True:
+##    max_profit = 0
+##else:
+##    for i in p_dict:
+##        if p_dict[i] > max_profit:
+##            max_profit = p_dict[i]
+##
+##print(max_profit)
 
-    s_d = {}
-    t_d = {}
+
+s = "[(])"
+dict = {'(':')', '[':']', '{':'}'}
+rev = s[-1::-1]
+seen = []
+valid_s = True
+for j in dict:
     for i in range(len(s)):
-        if s[i] not in s_d:
-            s_d[s[i]] = 1
+        print(s[i])
+        print(rev[i])
+        if (s[i] not in seen) and (s[i] == j and rev[i] != dict[j]):
+            valid_s = False
+            break
         else:
-            s_d[s[i]] = s_d[s[i]] + 1
+            valid_s = True
 
-    for j in range(len(t)):
-        if t[j] not in t_d:
-            t_d[t[j]] = 1
-        else:
-            t_d[t[j]] = t_d[t[j]] + 1
 
-    if s_d == t_d:
-        return True
-    else:
-        return False
-
-seen = [False] * len(strs)
-op = []
-for i in range(len(strs)):
-    if seen[i]:
-        #print(seen[i])
-        continue
-
-    a = [strs[i]]
-    #print(a)
-    seen[i] = True
-
-    for j in range(i+1,len(strs)):
-         if not seen[j] and valid_anagram(strs[i],strs[j]):
-             #print(strs[j])
-             a.append(strs[j])
-             seen[j] = True
-    #print(a)
-
-    op.append(a)
-
-return op
+print(valid_s)
             
+        
+
+    
     
 
             
