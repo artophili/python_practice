@@ -355,25 +355,53 @@
 ##print(max_profit)
 
 
-s = "[(])"
-dict = {'(':')', '[':']', '{':'}'}
-rev = s[-1::-1]
-seen = []
-valid_s = True
-for j in dict:
-    for i in range(len(s)):
-        print(s[i])
-        print(rev[i])
-        if (s[i] not in seen) and (s[i] == j and rev[i] != dict[j]):
-            valid_s = False
-            break
-        else:
-            valid_s = True
-
-
-print(valid_s)
+##s = "[(])"
+##dict = {'(':')', '[':']', '{':'}'}
+##rev = s[-1::-1]
+##seen = []
+##valid_s = True
+##for j in dict:
+##    for i in range(len(s)):
+##        print(s[i])
+##        print(rev[i])
+##        if (s[i] not in seen) and (s[i] == j and rev[i] != dict[j]):
+##            valid_s = False
+##            break
+##        else:
+##            valid_s = True
+##
+##
+##print(valid_s)
             
-        
+
+#Product sum
+
+def depth(arr, curr_depth = 0, l1=None):
+    if l1 is None:
+        l1 = []
+
+    if type(arr) is list:
+        for i in arr:
+            depth(i, curr_depth + 1, l1)
+    else:
+        l1.append((arr,curr_depth))
+    
+    return l1
+
+
+arr = [5,2,[7,1],3,[6,[-13,8],4]]
+sum = 0
+l = depth(arr)
+
+for i, j in l:
+    sum = sum + (i*j)
+
+print(sum)
+
+            
+
+    
+    
 
     
     
